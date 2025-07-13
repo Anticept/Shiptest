@@ -87,6 +87,11 @@
 #define SHIP_PLACEMENT_TEST
 #endif
 
+//THERE BE DRAGONS
+//If you uncomment //#define CBT, there will be nothing stopping you from building the DME directly, and all the problems that will bring.
+//Seriously, turn back. There be dragons!
+//#define CBT
+
 #if defined(OPENDREAM)
 	#if !defined(CIBUILDING)
 		#warn You are building with OpenDream. Remember to build TGUI manually.
@@ -94,8 +99,9 @@
 	#endif
 #else
 	#if !defined(CBT) && !defined(SPACEMAN_DMM)
-		#warn Building with Dream Maker is no longer supported and will result in errors.
-		#warn In order to build, run BUILD.cmd in the root directory.
-		#warn Consider switching to VSCode editor instead, where you can press Ctrl+Shift+B to build.
+		#error Building with Dream Maker is no longer supported and will result in numerous problems.
+		#error In order to build, run BUILD.cmd in the root directory on windows, the tgstation server tool, or docker on linux.
+		#error You can use the VSCode editor to build too, where you can press Ctrl+Shift+B.
+		#error If you need to override this block, open _compile_options.dm and find the section "//THERE BE DRAGONS"
 	#endif
 #endif
